@@ -22,7 +22,9 @@ jobs:
             dotnet build 
 
       - name: Publish
-        run: dotnet publish
+        run: |
+            cd src/HelloWorld
+            dotnet publish
       - name: Deploy to AWS Lambda
         uses: aws-actions/configure-aws-credentials@v1
         with:
