@@ -18,10 +18,11 @@ jobs:
       - name: Build
         run: |
             cd src/HelloWorld 
+            dotnet restore
             dotnet build 
 
       - name: Publish
-        run: dotnet publish -c Release -o ${{ github.workspace }}/publish
+        run: dotnet publish
       - name: Deploy to AWS Lambda
         uses: aws-actions/configure-aws-credentials@v1
         with:
