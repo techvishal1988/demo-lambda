@@ -16,7 +16,9 @@ jobs:
           dotnet-version: 6.0.x  # Adjust version as needed
 
       - name: Build
-        run: dotnet build --configuration Release
+        run: |
+            cd src/HelloWorld 
+            dotnet build 
 
       - name: Publish
         run: dotnet publish -c Release -o ${{ github.workspace }}/publish
